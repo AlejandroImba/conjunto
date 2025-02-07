@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/principal")
+@RequestMapping("/")
 public class PrincipalController {
-	
 
-@GetMapping("/menu")
-public String menu(Model model) {
+    @GetMapping("/")
+    public String mostrarMenu(Model model) {
+        List<String> opciones = List.of("Administrador", "Departamento", "Edificio", "Inquilino");
+        model.addAttribute("opciones", opciones);
+        return "index";
+    }
+    
 
-    List<String> opciones = List.of("Administrador", "Departamento", "Edificio", "Inquilino");
-    model.addAttribute("opciones", opciones);
-    return "index";
-}
     @PostMapping("/seleccionarOpcion")
-    public String seleccionarOpcion(@RequestParam("opcion") String opcion) {
+    public String seleccionarOpcion(@RequestParam("mostrarMenu") String opcion) {
         switch (opcion) {
             case "Administrador":
                 return "redirect:/administradores/findAll";
@@ -36,5 +36,4 @@ public String menu(Model model) {
                 return "redirect:/";
         }
     }
-    
 }
