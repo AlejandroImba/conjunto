@@ -26,7 +26,7 @@
           <a class="nav-link" href="/bddepartamentos-web/">Inicio</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">Areas Verdes</a>
+          <a class="nav-link" href="/bddepartamentos-web/areas/areassociales">Areas Sociales</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="#">Dejar un reclamo</a>

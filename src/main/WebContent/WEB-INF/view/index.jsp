@@ -40,10 +40,10 @@
           <a class="nav-link" href="edificios/findAll">Edificios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Areas Sociales</a>
+          <a class="nav-link" href="areas/areassociales">Areas Sociales</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dejar un reclamo</a>
+          <a class="nav-link" href="reclamos/formreclamos">Dejar un reclamo</a>
         </li>
       </ul>
       <!-- Botón de Iniciar sesión como Admin alineado a la derecha -->
