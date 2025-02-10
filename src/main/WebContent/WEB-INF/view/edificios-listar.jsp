@@ -29,10 +29,13 @@
           <a class="nav-link" href="/bddepartamentos-web/areas/areassociales">Areas Sociales</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">Dejar un reclamo</a>
+          <a class="nav-link" href="/bddepartamentos-web/reclamos/formreclamos">Dejar un reclamo</a>
         </li>
       </ul>
     </div>
+                  <div class="d-flex">
+        <a href="login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
+      </div>
   </div>
 </nav>
 <h1 class="mb-4">Edificios</h1>

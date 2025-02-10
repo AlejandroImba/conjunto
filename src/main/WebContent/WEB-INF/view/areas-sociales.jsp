@@ -28,7 +28,7 @@
           <a class="nav-link" href="/bddepartamentos-web/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dejar un reclamo</a>
+          <a class="nav-link" href="/bddepartamentos-web/reclamos/formreclamos">Dejar un reclamo</a>
         </li>
       </ul>
       <!-- Botón de Iniciar sesión como Admin alineado a la derecha -->
