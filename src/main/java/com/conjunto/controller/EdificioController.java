@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.conjunto.dao.AdministradorDAO;
+import com.conjunto.dao.DepartamentoDAO;
 import com.conjunto.dao.EdificioDAO;
 import com.conjunto.entities.Administrador;
-
+import com.conjunto.entities.Departamento;
 import com.conjunto.entities.Edificio;
 
 @Controller
@@ -26,6 +27,8 @@ public class EdificioController {
 
 	    @Autowired
 	    private AdministradorDAO administradorDAO;
+	  /*  @Autowired
+	    private DepartamentoDAO departamentoDAO;*/
 
 	    @GetMapping("/findAll")
 	    public String findAll(ModelMap modelMap) {
@@ -71,6 +74,8 @@ public class EdificioController {
 	        
 	        return "redirect:/edificios/findAll";
 	    }
+	 
+	
 
 	    @GetMapping("/del")
 	    public String del(@RequestParam("idEdificio") @Nullable Integer idEdificio) {
@@ -79,4 +84,7 @@ public class EdificioController {
 	        }
 	        return "redirect:/edificios/findAll";
 	    }
+
+
+
 }

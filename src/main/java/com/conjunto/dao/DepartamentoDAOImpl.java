@@ -2,6 +2,7 @@ package com.conjunto.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.conjunto.entities.Departamento;
 
 public class DepartamentoDAOImpl implements DepartamentoDAO {
+
+
 	@Autowired
 	private SessionFactory sessionFactory;
 	@Override
@@ -53,4 +56,21 @@ public class DepartamentoDAOImpl implements DepartamentoDAO {
 		session.delete(findOne(id));
 	}
 
-}
+	@Override
+	public List<Departamento> findDepartamentosByEdificio(Integer idEdificio) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	    @Autowired
+	    private EntityManager entityManager;
+	    @Override
+	    public List<Departamento> findByEdificio(Integer idEdificio) {
+	        String jpql = "SELECT d FROM Departamento d WHERE d.edificio.idEdificio = :idEdificio";
+	        return entityManager.createQuery(jpql, Departamento.class)
+	                            .setParameter("idEdificio", idEdificio)
+	                            .getResultList();
+	    }
+	}
+
+

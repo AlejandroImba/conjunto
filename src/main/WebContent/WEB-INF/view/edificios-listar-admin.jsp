@@ -23,7 +23,7 @@
           <a class="nav-link active" aria-current="page" href="#">Edificios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/bddepartamentos-web/edificios/findAll">Administradores</a>
+          <a class="nav-link" href="/bddepartamentos-web/administradores/findAll">Administradores</a>
         </li>
                 <li class="nav-item">
           <a class="nav-link" href="#">Departamentos</a>
