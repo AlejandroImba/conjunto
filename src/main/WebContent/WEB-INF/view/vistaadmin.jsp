@@ -27,7 +27,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CONJUNTOSIMBA</a>
+    <a class="navbar-brand" href="/bddepartamentos-web/admin">CONJUNTOSIMBA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,13 +37,7 @@
           <a class="nav-link active" aria-current="page" href="#">Inicio</a>
         </li>
                 <li class="nav-item">
-          <a class="nav-link" href="/bddepartamentos-web/administradores/findAll">Administradores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/bddepartamentos-web/edificiosadmin/findAll">Edificios</a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="#">Departamentos</a>
+          <a class="nav-link" href="/bddepartamentos-web/administradores/findAll?idAdministrador=1">Administradores</a>
         </li>
                 <li class="nav-item">
           <a class="nav-link" href="#">Inquilinos</a>
@@ -51,7 +45,7 @@
                 <li class="nav-item">
           <a class="nav-link" href="#">Guardias</a>
         </li>
-                <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link" href="#">Reservas</a>
         </li>
         <li class="nav-item">

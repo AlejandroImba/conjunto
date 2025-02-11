@@ -7,10 +7,10 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Repository;
 
 import com.conjunto.entities.Reclamo;
-
+@Repository
 public class ReclamoDAOImpl implements ReclamoDAO {
 
 	@Autowired
@@ -22,7 +22,6 @@ public class ReclamoDAOImpl implements ReclamoDAO {
 		Session session= sessionFactory.getCurrentSession();
 		return session.createQuery("FROM Reclamo",Reclamo.class).getResultList();
 	}
-
 	@Override
 	@Transactional
 	public Reclamo findOne(int id) {

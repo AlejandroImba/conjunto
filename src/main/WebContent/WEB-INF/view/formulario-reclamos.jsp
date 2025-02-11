@@ -12,7 +12,7 @@
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CONJUNTOSIMBA</a>
+    <a class="navbar-brand" href="/bddepartamentos-web/">CONJUNTOSIMBA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,44 +32,41 @@
         </li>
       </ul>
       <div class="d-flex">
-        <a href="login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
+        <a href="/bddepartamentos-web/login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
       </div>
     </div>
   </div>
 </nav>
 <div class="container py-5">
     <h1 class="text-center mb-4">Realizar un Reclamo</h1>
-    <form class="mt-3" action="/bddepartamentos-web/reclamos/insertar" method="post" onsubmit="return validarFecha(event)">
-        <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" id="fecha" name="fecha_reclamo" max="<%= java.time.LocalDate.now() %>" required>
-        </div>
-        <div class="mb-3">
-            <label for="mensaje" class="form-label">Descripción del Reclamo</label>
-            <textarea class="form-control" id="mensaje" name="descripcion" rows="4" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="inquilino" class="form-label">Inquilino</label>
-            <select class="form-select" id="inquilino" name="id_inquilino" required>
-                <c:forEach var="inquilino" items="${inquilinos}">
-                    <option value="${inquilino.id_inquilino}">${inquilino.nombre} ${inquilino.apellido}</option>
-                </c:forEach>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Reclamo</button>
-    </form>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<form class="mt-3" action="${pageContext.request.contextPath}/reclamos/insertar" method="post">
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha_reclamo" required>
+    </div>
+    <div class="mb-3">
+        <label for="mensaje" class="form-label">Descripción del Reclamo</label>
+        <textarea class="form-control" id="mensaje" name="descripcion" rows="4" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="inquilino" class="form-label">Inquilino</label>
+        <select class="form-select" id="inquilino" name="id_inquilino" required>
+            <c:forEach var="inquilino" items="${inquilinos}">
+                <option value="${inquilino.idInquilino}">${inquilino.nombre} ${inquilino.apellido}</option>
+            </c:forEach>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Reclamo</button>
+</form>
+
 <script>
     // Función para establecer la fecha actual en el campo de fecha
     function establecerFechaActual() {
-        var fechaInput = document.getElementById('fecha');
-        var fechaActual = new Date();
-        var año = fechaActual.getFullYear();
-        var mes = ('0' + (fechaActual.getMonth() + 1)).slice(-2); // Añade un 0 si es necesario
-        var dia = ('0' + fechaActual.getDate()).slice(-2); // Añade un 0 si es necesario
-        var fechaFormateada = año + '-' + mes + '-' + dia; // Formato YYYY-MM-DD
+        const fechaInput = document.getElementById('fecha');
+        const fechaActual = new Date();
+        const fechaFormateada = fechaActual.toISOString().split('T')[0]; // Formato YYYY-MM-DD
         fechaInput.value = fechaFormateada;
+        fechaInput.max = fechaFormateada; // Establece la fecha máxima permitida
     }
 
     // Llamar a la función al cargar la página
@@ -77,9 +74,9 @@
 
     // Función para validar la fecha
     function validarFecha(event) {
-        var fechaInput = document.getElementById('fecha').value;
-        var fechaSeleccionada = new Date(fechaInput);
-        var fechaActual = new Date();
+        const fechaInput = document.getElementById('fecha').value;
+        const fechaSeleccionada = new Date(fechaInput);
+        const fechaActual = new Date();
 
         // Comparar las fechas sin tener en cuenta la hora
         fechaSeleccionada.setHours(0, 0, 0, 0);
@@ -87,10 +84,11 @@
 
         if (fechaSeleccionada > fechaActual) {
             alert("No se permiten fechas futuras. Por favor, selecciona una fecha válida.");
-            return false; // Evita que el formulario se envíe
+            event.preventDefault(); // Evita que el formulario se envíe
+            return false;
         }
         return true; // Permite que el formulario se envíe
     }
-</script>
+</script>	
 </body>
 </html>

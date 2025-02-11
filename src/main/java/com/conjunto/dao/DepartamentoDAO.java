@@ -10,7 +10,6 @@ public interface DepartamentoDAO {
 	public void add(Departamento departamento);
 	public void up(Departamento departamento);
 	public void del(int id);
-	public List<Departamento> findDepartamentosByEdificio(Integer idEdificio);
-	public List<Departamento> findByEdificio(Integer idEdificio);
+	public List<Departamento> findByEdificioId(int idEdificio);
 
 }

@@ -33,7 +33,7 @@
       </ul>
       <!-- Botón de Iniciar sesión como Admin alineado a la derecha -->
       <div class="d-flex">
-        <a href="login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
+        <a href="/bddepartamentos-web/login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
       </div>
     </div>
   </div>

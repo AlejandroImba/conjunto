@@ -23,6 +23,8 @@
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    <button  class="btn btn-danger" class="btn btn-primary" type="button" onclick="window.location.href='/bddepartamentos-web/'">Cancelar</button>
+                    
                 </form>
                 <%-- Mostrar mensaje de error si existe --%>
                 <c:if test="${not empty error}">

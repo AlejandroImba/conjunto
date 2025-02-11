@@ -13,7 +13,7 @@
 <body class="container mt-4">
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CONJUNTOSIMBA</a>
+    <a class="navbar-brand" href="/bddepartamentos-web/">CONJUNTOSIMBA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +34,7 @@
       </ul>
     </div>
                   <div class="d-flex">
-        <a href="login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
+        <a href="/bddepartamentos-web/login/" class="btn btn-outline-primary">Iniciar sesión como Admin</a>
       </div>
   </div>
 </nav>
@@ -45,25 +45,23 @@
 <table class="table table-bordered table-striped">
     <thead class="table-dark">
         <tr>
-            <th>ID Edificio</th>
             <th>Color</th>
             <th>Número de Departamentos</th>
             <th>Pisos</th>
-            <th>Administrador</th>
-            <th>Acciones</th>
+            <th>Ir</th>
         </tr>
     </thead>
     <tbody>
         <c:forEach var="edificio" items="${edificios}">
             <tr>
-                <td>${edificio.idEdificio}</td>
                 <td>${edificio.color}</td>
                 <td>${edificio.num_dep}</td>
                 <td>${edificio.pisos}</td>
-                <td>${edificio.administrador.nombre} ${edificio.administrador.apellido}</td>
                 <td>
-  <button class="btn btn-info" class="btn btn-danger" class="btn btn-primary" type="button" onclick="window.location.href='/bddepartamentos-web/departamentos/findAll'">Ver departamentos</button>
-                </td>
+<button class="btn btn-info" type="button" 
+        onclick="window.location.href='/bddepartamentos-web/departamentos/findByEdificio?idEdificio=${edificio.idEdificio}'">
+    Ver departamentos
+</button>                </td>
                 
             </tr>
             </c:forEach>

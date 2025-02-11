@@ -8,8 +8,10 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.conjunto.entities.Departamento;
+@Repository
 
 public class DepartamentoDAOImpl implements DepartamentoDAO {
 
@@ -57,20 +59,26 @@ public class DepartamentoDAOImpl implements DepartamentoDAO {
 	}
 
 	@Override
-	public List<Departamento> findDepartamentosByEdificio(Integer idEdificio) {
+	@Transactional
+	public List<Departamento> findByEdificioId(int idEdificio) {
 		// TODO Auto-generated method stub
-		return null;
+	    Session session = sessionFactory.getCurrentSession();
+	    String hql = "FROM Departamento d WHERE d.edificio.idEdificio = :idEdificio";
+	    return session.createQuery(hql, Departamento.class)
+	                  .setParameter("idEdificio", idEdificio)
+	                  .getResultList();
 	}
 
-	    @Autowired
-	    private EntityManager entityManager;
-	    @Override
-	    public List<Departamento> findByEdificio(Integer idEdificio) {
-	        String jpql = "SELECT d FROM Departamento d WHERE d.edificio.idEdificio = :idEdificio";
-	        return entityManager.createQuery(jpql, Departamento.class)
-	                            .setParameter("idEdificio", idEdificio)
-	                            .getResultList();
-	    }
+	/*@Override
+	@Transactional
+	public List<Departamento> findByEdificioId(int idEdificio) {
+		    Session session = sessionFactory.getCurrentSession();
+		    String hql = "FROM Departamento d WHERE d.edificio.idEdificio = :idEdificio";
+		    return session.createQuery(hql, Departamento.class)
+		                  .setParameter("idEdificio", idEdificio)
+		                  .getResultList();
+		
+	}*/
 	}
 
 
