@@ -22,25 +22,38 @@ public class Parqueadero {
 					private int idParqueadero;
 					@Column(name="ubicacion")
 					private String ubicacion;
-					@Column(name="tipo_auto")
-					private String tipoAuto;
+					@Column(name="disponibilidad")
+					private String disponibilidad;
 					@JoinColumn(name= "id_admin")
 					@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 					private Administrador administrador;
 					@JoinColumn(name= "id_edificio")
 					@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 					private Edificio edificio;
+					
+					
 					public Parqueadero() {
-						
+					
 					}
-					public Parqueadero(int idParqueadero, String ubicacion, String tipoAuto,
+
+					public Parqueadero(int idParqueadero, String ubicacion, String disponibilidad,
 							Administrador administrador, Edificio edificio) {
 						this.idParqueadero = idParqueadero;
 						this.ubicacion = ubicacion;
-						this.tipoAuto = tipoAuto;
+						this.disponibilidad = disponibilidad;
 						this.administrador = administrador;
 						this.edificio = edificio;
 					}
+
+
+					public String getDisponibilidad() {
+						return disponibilidad;
+					}
+
+					public void setDisponibilidad(String disponibilidad) {
+						this.disponibilidad = disponibilidad;
+					}
+
 					public int getIdParqueadero() {
 						return idParqueadero;
 					}
@@ -52,12 +65,6 @@ public class Parqueadero {
 					}
 					public void setUbicacion(String ubicacion) {
 						this.ubicacion = ubicacion;
-					}
-					public String getTipoAuto() {
-						return tipoAuto;
-					}
-					public void setTipoAuto(String tipoAuto) {
-						this.tipoAuto = tipoAuto;
 					}
 					public Administrador getAdministrador() {
 						return administrador;
@@ -74,7 +81,7 @@ public class Parqueadero {
 					@Override
 					public String toString() {
 						return "Parqueadero [idParqueadero=" + idParqueadero + ", ubicacion=" + ubicacion
-								+ ", tipoAuto=" + tipoAuto + ", administrador=" + administrador + ", edificio="
+								+ ", tipoAuto=" + disponibilidad + ", administrador=" + administrador + ", edificio="
 								+ edificio + "]";
 					}
 					

@@ -40,7 +40,7 @@
           <a class="nav-link" href="/bddepartamentos-web/administradores/findAll?idAdministrador=1">Administradores</a>
         </li>
                 <li class="nav-item">
-          <a class="nav-link" href="#">Inquilinos</a>
+          <a class="nav-link" href="/bddepartamentos-web/inquilinos/findAll?idInquilino=1">Inquilinos</a>
         </li>
                 <li class="nav-item">
           <a class="nav-link" href="#">Guardias</a>

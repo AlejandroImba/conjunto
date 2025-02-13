@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/bddepartamentos-web/admin">CONJUNTOSIMBA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,13 +22,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav nav-tabs me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Administradores</a>
+          <a class="nav-link active" aria-current="page" href="#">Inquilino</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="/bddepartamentos-web/administradores/findAll?idAdministrador=1">Administradores</a>
         </li>
                 <li class="nav-item">
           <a class="nav-link" href="/bddepartamentos-web/admin">Inicio</a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="/bddepartamentos-web/inquilinos/findAll">Inquilinos</a>
         </li>
                 <li class="nav-item">
           <a class="nav-link" href="#">Guardias</a>
@@ -74,31 +74,37 @@
         });
     </script>
 <% } %>
-	 <center><button type="button" class="btn btn-primary" onclick="window.location.href='/bddepartamentos-web/administradores/findOne?opcion=1'; return false;">Agregar</button></center>
+	 <center><button type="button" class="btn btn-primary" onclick="window.location.href='/bddepartamentos-web/inquilinos/findOne?opcion=1'; return false;">Agregar</button></center>
 	<table class="table table-striped">
  		<thead>
 			<tr>
-				<th>idAdministrador</th>
-				<th>nombre</th>
-				<th>apellido</th>
-				<th>telefono</th>
-				<th>correo</th>
-				<th>codigo</th>
-				<th>Acciones</th>
+				<th>idInquilino</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Teléfono</th>
+				<th>Teléfono de referencia</th>
+				<th>Correo</th>
+				<th>Edificio</th>
+				<th>Parqueadero</th>
+				<th>Administrador</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="item" items="${administradores}">
+			<c:forEach var="item" items="${inquilinos}">
 				<tr>
-					<td>${item.idAdministrador}</td>
+					<td>${item.idInquilino}</td>
 					<td>${item.nombre}</td>
 					<td>${item.apellido}</td>
 					<td>${item.telefono}</td>
+					<td>${item.telefonoReferencia}</td>
 					<td>${item.correo}</td>
-					<td>${item.codigo}</td>
+					<td>${item.edificio.color}</td>
+					<td>${item.parqueadero.ubicacion}</td>
+					<td>${item.administrador.nombre} ${item.administrador.apellido}</td>
 					<td>
-						<button type="button" class="btn btn-success" onclick="window.location.href='/bddepartamentos-web/administradores/findOne?opcion=1&idAdministrador=${item.idAdministrador}'; return false;">Actualizar</button>
-						<button type="button" class="btn btn-danger" onclick="window.location.href='/bddepartamentos-web/administradores/findOne?opcion=2&idAdministrador=${item.idAdministrador}'; return false;">Borrar</button>
+						<button type="button" class="btn btn-success"
+						 onclick="window.location.href='/bddepartamentos-web/inquilinos/findOne?opcion=1&idInquilino=${item.idInquilino}'; return false;">Actualizar</button>
+						<button type="button" class="btn btn-danger" onclick="window.location.href='/bddepartamentos-web/inquilinos/findOne?opcion=2&idInquilino=${item.idInquilino}'; return false;">Borrar</button>
 					</td>
 				</tr>
 			</c:forEach>			

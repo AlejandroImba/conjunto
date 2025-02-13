@@ -7,9 +7,10 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.conjunto.entities.Parqueadero;
-
+@Repository
 public class ParqueaderoDAOImpl implements ParqueaderoDAO {
 	@Autowired
 	private SessionFactory sessionFactory;

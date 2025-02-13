@@ -14,6 +14,8 @@
 	
 	<div class="mb-3">
 	<div class="d-grid gap-2 col-6 mx-auto">
+	
+	<br>
 <form action="add" method="POST">
 	<input type="hidden" id="idAdministrador" name="idAdministrador" value="${administrador.idAdministrador}" />
    <label for="exampleFormControlInput1" class="form-label">Nombre</label>

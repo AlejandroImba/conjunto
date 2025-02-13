@@ -40,6 +40,7 @@
 <div class="container py-5">
     <h1 class="text-center mb-4">Realizar un Reclamo</h1>
 <form class="mt-3" action="${pageContext.request.contextPath}/reclamos/insertar" method="post">
+<br>
     <div class="mb-3">
         <label for="fecha" class="form-label">Fecha</label>
         <input type="date" class="form-control" id="fecha" name="fecha_reclamo" required>
