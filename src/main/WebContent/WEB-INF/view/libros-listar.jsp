@@ -42,7 +42,7 @@
         border: none;
     }
 </style>
-</head>
+</head> 
 <body>
 
 <div class="container">
