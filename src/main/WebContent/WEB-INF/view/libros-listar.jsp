@@ -41,7 +41,7 @@
         background-color: #dc3545;
         border: none;
     }
-</style> 
+</style>  
 </head> 
 <body>
 
