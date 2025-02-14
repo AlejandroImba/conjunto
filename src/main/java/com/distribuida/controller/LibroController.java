@@ -54,7 +54,7 @@ public class LibroController {
 		modelMap.addAttribute("autores", autorDAO.findAll());
 		if(opcion==1) return "libros-add";
 		return "libros-del";
-	}
+	} 
 	
 
 	@PostMapping("/add")
