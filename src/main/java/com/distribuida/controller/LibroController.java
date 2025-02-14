@@ -43,7 +43,7 @@ public class LibroController {
 	@GetMapping("/findOne")
 	private String findOne(@RequestParam("idLibro")@Nullable Integer idLibro
 			,@RequestParam("opcion")@Nullable Integer opcion
-			,ModelMap modelMap
+			,ModelMap modelMap 
 			) {
 		if(idLibro != null) {
 			Libro libro = libroDAO.findOne(idLibro);
