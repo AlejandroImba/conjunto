@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -60,11 +61,11 @@ public class LibroController {
 	@PostMapping("/add")
 	private String add(@RequestParam("idLibro")@Nullable Integer idLibro
 				,@RequestParam("titulo")@Nullable String titulo
-				,@RequestParam("editoral")@Nullable String editorial
+				,@RequestParam("editorial")@Nullable String editorial
 				,@RequestParam("numPaginas")@Nullable Integer numPaginas
 				,@RequestParam("edicion")@Nullable String edicion
 				,@RequestParam("idioma")@Nullable String idioma
-				,@RequestParam("fechaPublicacion")@Nullable Date fechaPublicacion
+				,@RequestParam("fechaPublicacion")@Nullable @DateTimeFormat(pattern = "yyyy-mm-dd") Date fechaPublicacion
 				,@RequestParam("descripcion")@Nullable String descripcion
 				,@RequestParam("tipoPasta")@Nullable String tipoPasta
 				,@RequestParam("iSBN")@Nullable String iSBN

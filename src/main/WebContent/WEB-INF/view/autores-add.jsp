@@ -37,10 +37,50 @@
     .btn-secondary:hover {
         background-color: #5a6268;
     }
-</style>
+        body {
+            padding-top: 56px; /* Para que el contenido no se superponga con la barra fija */
+        }
+        .section-title {
+            margin-bottom: 40px;
+        }
+        .card-img-top {
+            height: 200px; /* Altura uniforme para las imágenes */
+            object-fit: cover; /* Ajusta las imágenes sin deformarlas */
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="/ismac-libreria-nocturno-web/">Librería Online</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/clientes/findAll">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/autores/findAll">Autores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/categorias/findAll">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/libros/findAll">Libros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class="form-container">
     <h1>Autores</h1>
     

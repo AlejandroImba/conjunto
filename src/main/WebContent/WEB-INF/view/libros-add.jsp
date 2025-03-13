@@ -33,10 +33,50 @@
         background-color: #6c757d;
         border: none;
     }
-</style>
+        body {
+            padding-top: 56px; /* Para que el contenido no se superponga con la barra fija */
+        }
+        .section-title {
+            margin-bottom: 40px;
+        }
+        .card-img-top {
+            height: 200px; /* Altura uniforme para las imágenes */
+            object-fit: cover; /* Ajusta las imágenes sin deformarlas */
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="/ismac-libreria-nocturno-web/">Librería Online</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/clientes/findAll">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/autores/findAll">Autores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/categorias/findAll">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ismac-libreria-nocturno-web/libros/findAll">Libros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class="form-container">
     <h1>Libros</h1>
     
@@ -67,7 +107,7 @@
 
         <div class="col-md-6">
             <label for="fechaPublicacion" class="form-label">Fecha de Publicación</label>
-            <input type="date" class="form-control" id="fechaPublicacion" name="fechaPublicacion" value="${libro.fechaPublicacion}" required>
+            <input type="date" class="form-control" id="fechaPublicacion" name="fechaPublicacion" value="${fn:substring(libro.fechaPublicacion,0,10)}" required>
         </div>
  
         <div class="col-md-12">
@@ -109,14 +149,18 @@
             <label for="idCategoria" class="form-label">Categoría</label>
             <select class="form-select" id="idCategoria" name="idCategoria" required>
                 <c:forEach var="item" items="${categorias}">
-                    <option value="${item.idCategoria}">${item.categoria}</option>
+                    <option value="${item.idCategoria}" ${item.idCategoria == libro.categoria.idCategoria ? 'selected': ''} >${item.categoria}</option>
                 </c:forEach>
             </select>
         </div>
 
-        <div class="col-md-6">
-            <label for="autor" class="form-label">Autor</label>
-            <input type="text" class="form-control" id="autor" name="autor" value="${autor.autor}" required>
+            <div class="col-md-6">
+            <label for="idCategoria" class="form-label">Categoría</label>
+            <select class="form-select" id="idAutor" name="idAutor" required>
+                <c:forEach var="item" items="${autores}">
+                    <option value="${item.idAutor}" ${item.idAutor == libro.autor.idAutor ? 'selected': ''}>${item.nombre} ${item.apellido}</option>
+                </c:forEach>
+            </select>
         </div>
 
         <div class="col-12 d-flex justify-content-between">
