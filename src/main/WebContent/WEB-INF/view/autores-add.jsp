@@ -9,7 +9,7 @@
 <style>
     body {
         background-color: #f8f9fa;
-    }
+    } 
     .form-container {
         max-width: 600px;
         margin: 50px auto;
